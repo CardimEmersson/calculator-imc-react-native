@@ -7,13 +7,13 @@
  */
 
 import React, {useState} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import Input from './components/Input';
 import Button from './components/Button';
 import BadgeResult from './components/BadgeResult';
 import {calculateImc} from './services';
 
-const App = () => {
+const Home = () => {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [statusImc, setStatusImc] = useState();
@@ -80,6 +80,12 @@ const App = () => {
           />
         </View>
       )}
+      <View>
+        <Image
+          style={styles.image}
+          source={require('../public/assets/imc-calculo-classificacao.png')}
+        />
+      </View>
     </View>
   );
 };
@@ -109,7 +115,13 @@ const styles = StyleSheet.create({
     padding: 10,
     marginHorizontal: 20,
     flexDirection: 'row',
+    marginBottom: 20,
+  },
+  image: {
+    height: 250,
+    resizeMode: 'contain',
+    borderRadius: 5,
   },
 });
 
-export default App;
+export default Home;
